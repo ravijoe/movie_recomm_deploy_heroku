@@ -86,7 +86,6 @@ def home():
 def recommend():
     movie = request.args.get('movie')
     r = get_recommendations(movie)
-    movie = movie.upper()
     if type(r)==type('string'):
         return render_template('recommend.html',movie=movie,r=r,t='s')
     else:
