@@ -2,7 +2,7 @@
 # coding: utf-8
 
 
-from os import path
+import os
 #Import TfIdfVectorizer from scikit-learn
 from sklearn.feature_extraction.text import TfidfVectorizer
 import pandas as pd
@@ -12,6 +12,8 @@ from flask import Flask, render_template, request
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics.pairwise import linear_kernel
+
+
 
 # df1=pd.read_csv('tmdb_5000_credits.csv')
 df2=pd.read_csv('tmdb_5000_movies.csv')
