@@ -57,7 +57,7 @@ indices = pd.Series(df2.index, index=df2['title']).drop_duplicates()
 # Function that takes in movie title as input and outputs most similar movies
 def get_recommendations(title, cosine_sim=cosine_sim):
     if title not in df2['title'].values:
-        return ('This movie is not in our database.\nPlease check if you spelled it correct using camel casing')
+        return ('This movie is not in our database.\nPlease check if you spelled it correct')
     else:
         # Get the index of the movie that matches the title
         # if title not in df2
@@ -87,7 +87,7 @@ def home():
 @app.route("/recommend")
 def recommend():
     movie = request.args.get('movie')
-    r = get_recommendations(movie)
+    r = get_recommendations(movie.title())
     if type(r)==type('string'):
         return render_template('recommend.html',movie=movie,r=r,t='s')
     else:
